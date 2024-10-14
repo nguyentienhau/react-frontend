@@ -5,7 +5,7 @@
 		"commonjs": true,
 		"node": true
 	},
-	"ignorePatterns": ["/node_modules"],
+	"ignorePatterns": ["/node_modules", "/build", "/bundle", "/development", "/production"],
 	"extends": ["eslint:recommended", "plugin:react/recommended"],
 	"parserOptions": {
 		"ecmaFeatures": {
@@ -25,7 +25,6 @@
 		"linebreak-style": ["error", "windows"],
 		"quotes": ["error", "double"],
 		"semi": ["error", "always"],
-		"react/react-in-jsx-scope": "off",
 		"spellcheck/spell-checker": [
 			"warn",
 			{
@@ -33,7 +32,7 @@
 				"strings": true,
 				"identifiers": true,
 				"lang": "en_US",
-				"skipWords": ["dict", "bool", "utils", "sequelize", "readdir", "webpack", "jsx", "tsx", "cjs", "mjs", "cts", "mts"],
+				"skipWords": ["func", "bool", "webpack", "redux", "jsx", "tsx"],
 				"skipIfMatch": ["http://[^s]*"],
 				"skipWordIfMatch": ["^foobar.*$"],
 				"minLength": 3

@@ -128,6 +128,15 @@
 	},
 	{
 		target: String.prototype,
+		name: "format",
+		value: function (data = {}) {
+			return data.constructor === Object ? this.replace(/{([A-Za-z0-9_-]+)}/g, function (match, key) {
+				return data[key] || match;
+			}) : this;
+		}
+	},
+	{
+		target: String.prototype,
 		name: "isEmail",
 		value: function () {
 			const regexp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

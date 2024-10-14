@@ -3,7 +3,7 @@ const webpack = require("webpack");
 
 module.exports = function (env, argsObject) {
 	return {
-		entry: "./source/index.jsx",
+		entry: "./index.jsx",
 		output: {
 			path: path.resolve(__dirname, argsObject.mode || "bundle"),
 			filename: "index.js"
@@ -18,15 +18,11 @@ module.exports = function (env, argsObject) {
 			historyApiFallback: true
 		},
 		resolve: {
-			modules: ["source", "node_modules", "style"],
-			extensions: [".js", ".jsx", ".ts", ".tsx", ".css", ".scss", ".sass"],
+			modules: ["build", "node_modules", "style"],
+			extensions: [".js", ".jsx", ".ts", ".tsx", ".css", ".scss"],
 			alias: {
-				"@": path.resolve(__dirname)
-			},
-			extensionAlias: {
-				".js": [".js", ".ts"],
-				".cjs": [".cjs", ".cts"],
-				".mjs": [".mjs", ".mts"]
+				source: path.resolve(__dirname, "source"),
+				style: path.resolve(__dirname, "style")
 			}
 		},
 		stats: {
